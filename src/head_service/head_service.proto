@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package head_service.v1;
+
+option go_package = "github.com/Konstantin-TT/contract/contract-go/head-service/v1";
+
+message TryRegisterPeopleParams {
+  string name = 1;
+  string family_name = 2;
+}
+
+service PeopleService {
+  rpc TryRegisterPeople(TryRegisterPeopleParams) returns (google.protobuf.Empty);
+}

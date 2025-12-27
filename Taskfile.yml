@@ -1,0 +1,18 @@
+version: '3'
+
+tasks:
+  generate:
+    aliases:
+      - gen
+    desc: "Генерация Go кода из всех .proto файлов в src/"
+    cmds:
+      - |
+        find src -name "*.proto" | while read proto_file; do
+          protoc \
+            --proto_path=src \
+            --go_out=contract-go \
+            --go_opt=paths=source_relative \
+            --go-grpc_out=contract-go \
+            --go-grpc_opt=paths=source_relative \
+            "$proto_file"
+        done
