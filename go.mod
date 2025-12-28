@@ -1,4 +1,4 @@
-module contract
+module github.com/Konstantin-TT/contract
 
 go 1.24.0
 
